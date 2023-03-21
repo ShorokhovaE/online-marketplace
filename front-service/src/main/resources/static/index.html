@@ -20,10 +20,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#!/">Web Store</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" ng-show="isLoggedIn()">
                     <a class="nav-link" href="#!/store">Каталог товаров</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" ng-show="isLoggedIn()">
                     <a class="nav-link" href="#!/cart">Корзина</a>
                 </li>
                 <li class="nav-item" ng-show="isLoggedIn()">

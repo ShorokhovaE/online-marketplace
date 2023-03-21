@@ -12,7 +12,7 @@ public class OpenApiConfig {
         return new OpenAPI()
                 .info(
                         new Info()
-                                .title("GeekBrains - Web-store - Продуктовый сервис")
+                                .title("Web-store - Продуктовый сервис")
                                 .version("1")
                 );
     }

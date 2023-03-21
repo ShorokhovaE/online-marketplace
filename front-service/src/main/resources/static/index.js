@@ -86,10 +86,6 @@ angular.module('market').controller('IndexController', function ($rootScope, $sc
         $http.defaults.headers.common.Authorization = '';
     }
     $scope.isLoggedIn = function (){
-        if ($localStorage.springUser){
-            return true;
-        } else {
-            return false;
-        }
+        return $localStorage.springUser;
     }
 });
