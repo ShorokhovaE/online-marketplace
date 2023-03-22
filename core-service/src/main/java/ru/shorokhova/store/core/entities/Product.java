@@ -1,5 +1,6 @@
 package ru.shorokhova.store.core.entities;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -33,8 +34,8 @@ public class Product {
     @Column(name = "company_name")
     private String companyName;
 
-    @Column(name = "count")
-    private int count;
+    @Column(name = "quantity")
+    private int quantity;
 
     @OneToMany
     private List<Feedback> feedback;

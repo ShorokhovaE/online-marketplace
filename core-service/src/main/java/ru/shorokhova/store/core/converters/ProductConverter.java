@@ -17,7 +17,7 @@ public class ProductConverter {
                 .title(p.getTitle())
                 .price(p.getPrice())
                 .companyName(p.getCompanyName())
-                .count(p.getCount())
+                .quantity(p.getQuantity())
                 .description(p.getDescription())
                 .feedbacks(p.getFeedback().stream()
                         .map(f -> FeedbackDto.builder()

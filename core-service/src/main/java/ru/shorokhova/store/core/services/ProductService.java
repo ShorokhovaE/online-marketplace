@@ -35,8 +35,17 @@ public class ProductService {
         product.setPrice(createNewProductDto.getPrice());
         product.setCompanyName(createNewProductDto.getCompanyName());
         product.setDescription(createNewProductDto.getDescription());
-        product.setCount(createNewProductDto.getCount());
+        product.setQuantity(createNewProductDto.getCount());
         productRepository.save(product);
+    }
+
+    public void changeQuantity(Long productId, int quantity){
+        Product product = productRepository.findById(productId).get();
+        int currentQuantity = product.getQuantity();
+        int newQuantity = currentQuantity - quantity;
+        product.setQuantity(newQuantity);
+        productRepository.save(product);
+
     }
 
 }

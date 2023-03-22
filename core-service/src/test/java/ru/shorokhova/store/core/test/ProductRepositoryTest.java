@@ -24,9 +24,12 @@ public class ProductRepositoryTest {
     @Test
     public void findAllProductsTest(){
         Product product = new Product();
-        product.setTitle("Cookies");
+        product.setTitle("Печеньки");
         product.setId(1234567L);
+        product.setDescription("Вкусные печеньки");
+        product.setCompanyName("Магазин с печеньками");
         product.setPrice(BigDecimal.valueOf(25));
+        product.setQuantity(17);
 
         entityManager.persist(product);
         entityManager.flush();;
@@ -34,7 +37,7 @@ public class ProductRepositoryTest {
         List<Product> products = productRepository.findAll();
 
         Assertions.assertEquals(4, products.size());
-        Assertions.assertEquals("Cookies", products.get(3).getTitle());
+        Assertions.assertEquals("Печеньки", products.get(3).getTitle());
 
 
     }

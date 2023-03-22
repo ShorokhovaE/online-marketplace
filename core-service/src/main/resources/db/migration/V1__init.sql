@@ -1,17 +1,16 @@
 create table products
 (
-    id    int NOT NULL AUTO_INCREMENT,
+    id bigserial primary key,
     title varchar(45),
     price decimal(5,2),
     description varchar(255),
     company_name varchar(100),
-    count int,
+    quantity int,
     created_at timestamp default current_timestamp,
-    updated_at timestamp default current_timestamp,
-    PRIMARY KEY (id)
+    updated_at timestamp default current_timestamp
 );
 
-insert into products (title, price, description, company_name, count)
+insert into products (title, price, description, company_name, quantity)
 values ('Milk', 24.50, 'Description', 'companyName', 10),
        ('Bobs', 15.50, 'Description', 'companyName', 10),
        ('Bread', 22.00, 'Description', 'companyName', 10),
@@ -23,48 +22,40 @@ values ('Milk', 24.50, 'Description', 'companyName', 10),
 
 create table orders
 (
-    id   int NOT NULL AUTO_INCREMENT,
+    id bigserial primary key,
     username varchar(255),
     total_price decimal(5,2) not null,
     created_at timestamp default current_timestamp,
-    updated_at timestamp default current_timestamp,
-    PRIMARY KEY (id)
+    updated_at timestamp default current_timestamp
 );
 
 
 create table order_items
 (
-    id   int NOT NULL AUTO_INCREMENT,
-    product_id int,
-    order_id int,
+    id bigserial primary key,
+    product_id bigint not null references products(id),
+    order_id bigint not null references orders(id),
     quantity int,
     price_per_product decimal(5,2),
     price decimal(5,2),
     created_at timestamp default current_timestamp,
-    updated_at timestamp default current_timestamp,
-    PRIMARY KEY (id),
-    FOREIGN KEY (order_id) REFERENCES orders (id),
-    FOREIGN KEY (product_id) REFERENCES products (id)
+    updated_at timestamp default current_timestamp
 );
 
 create table feedbacks
 (
-    id   int NOT NULL AUTO_INCREMENT,
+    id bigserial primary key,
     comment_text varchar(255),
     grade int,
-    product_id int,
+    product_id bigint not null references products(id),
     created_at timestamp default current_timestamp,
-    updated_at timestamp default current_timestamp,
-    PRIMARY KEY (id),
-    FOREIGN KEY (product_id) REFERENCES products (id)
+    updated_at timestamp default current_timestamp
 );
 
 create table products_feedback
 (
-    product_id int,
-    feedback_id int,
+    product_id bigint not null references products(id),
+    feedback_id bigint not null references feedbacks(id),
     created_at timestamp default current_timestamp,
-    updated_at timestamp default current_timestamp,
-    FOREIGN KEY (product_id) REFERENCES products (id),
-    FOREIGN KEY (feedback_id) REFERENCES feedbacks (id)
+    updated_at timestamp default current_timestamp
 );

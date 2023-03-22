@@ -34,15 +34,6 @@ public class OrderServiceTest {
 
     @Test
     public void createOrderTest() {
-//        CartDto cartDto = new CartDto();
-////        CartItemDto cartItemDto = new CartItemDto();
-////        cartItemDto.setProductTitle("Milk");
-////        cartItemDto.setPricePerProduct(BigDecimal.valueOf(100));
-////        cartItemDto.setQuantity(2);
-////        cartItemDto.setPrice(BigDecimal.valueOf(200));
-////        cartItemDto.setProductId(19267L);
-//        cartDto.setTotalPrice(BigDecimal.valueOf(200));
-//        cartDto.setItems(List.of(cartItemDto));
 
         CartItemDto cartItemDto = CartItemDto.builder()
                 .productTitle("Milk")

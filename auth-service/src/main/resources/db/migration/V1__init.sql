@@ -1,28 +1,24 @@
 create table users
 (
-    id       int NOT NULL AUTO_INCREMENT,
+    id bigserial primary key,
     username varchar(45) NOT NULL,
     password varchar(100) NOT NULL,
-    enable   tinyint(1),
     created_at timestamp default current_timestamp,
-    updated_at timestamp default current_timestamp,
-    PRIMARY KEY (id)
+    updated_at timestamp default current_timestamp
 );
 
 create table roles
 (
-    id   int NOT NULL AUTO_INCREMENT,
+    id bigserial primary key,
     name varchar(45) NOT NULL,
-    PRIMARY KEY (id)
+    created_at timestamp default current_timestamp,
+    updated_at timestamp default current_timestamp
 );
 
 create table users_roles
 (
-    user_id int NOT NULL,
-    role_id int NOT NULL,
-    PRIMARY KEY (user_id, role_id),
-    FOREIGN KEY (user_id) REFERENCES users (id),
-    FOREIGN KEY (role_id) REFERENCES roles (id)
+    user_id bigint not null references users(id),
+    role_id bigint not null references roles(id)
 );
 
 insert into roles (name)

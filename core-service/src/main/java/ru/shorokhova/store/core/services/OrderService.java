@@ -40,6 +40,8 @@ public class OrderService {
         ).collect(Collectors.toList()));
         orderRepository.save(order);
         cartServiceIntegration.clear(username);
+
+        order.getItems().stream().forEach(orderItem -> productService.changeQuantity(orderItem.getProduct().getId(), orderItem.getQuantity()));
         return order;
     }
 

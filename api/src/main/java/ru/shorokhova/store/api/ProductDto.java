@@ -22,7 +22,7 @@ public class ProductDto {
 
     private String companyName;
 
-    private int count;
+    private int quantity;
 
     private List<FeedbackDto> feedbacks;
 

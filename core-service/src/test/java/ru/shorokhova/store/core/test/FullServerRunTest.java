@@ -24,6 +24,6 @@ public class FullServerRunTest {
         assertThat(products)
                 .isNotNull()
                 .isNotEmpty()
-                .hasSize(4);
+                .hasSize(6);
     }
 }
