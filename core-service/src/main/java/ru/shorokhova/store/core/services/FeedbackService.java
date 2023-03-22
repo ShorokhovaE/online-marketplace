@@ -8,6 +8,7 @@ import ru.shorokhova.store.core.entities.Feedback;
 import ru.shorokhova.store.core.entities.Product;
 import ru.shorokhova.store.core.repositories.FeedbackRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -21,12 +22,10 @@ public class FeedbackService {
 
     public void addFeedback(FeedbackDto feedbackDto) {
 
-        System.out.println("feedbackDto в методе addFeedback " + feedbackDto);
         Feedback feedback = new Feedback();
         feedback.setGrade(feedbackDto.getGrade());
         feedback.setCommentText(feedbackDto.getCommentText());
         feedback.setProduct(productService.findById(feedbackDto.getProductId()).get());
-
         feedbackRepository.save(feedback);
 
     }

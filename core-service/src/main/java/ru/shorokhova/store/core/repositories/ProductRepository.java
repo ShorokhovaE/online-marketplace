@@ -7,6 +7,6 @@ import ru.shorokhova.store.core.entities.Product;
 
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long>, JpaSpecificationExecutor<Product> {
+public interface ProductRepository extends JpaRepository<Product, Long>{
 
 }

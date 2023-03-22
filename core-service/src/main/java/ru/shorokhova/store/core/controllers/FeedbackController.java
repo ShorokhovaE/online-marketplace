@@ -26,7 +26,6 @@ public class FeedbackController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void addFeedback(@RequestBody FeedbackDto feedbackDto) {
-        System.out.println("feedbackDto = " + feedbackDto);
         feedbackService.addFeedback(feedbackDto);
     }
 

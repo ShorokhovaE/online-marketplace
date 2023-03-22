@@ -1,7 +1,5 @@
 package ru.shorokhova.store.core.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -29,11 +27,14 @@ public class Product {
     @Column(name = "price")
     private BigDecimal price;
 
-//    private String description;
-//
-//    private String companyName;
-//
-//    private int count;
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "company_name")
+    private String companyName;
+
+    @Column(name = "count")
+    private int count;
 
     @OneToMany
     private List<Feedback> feedback;

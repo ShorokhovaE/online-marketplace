@@ -1,15 +1,13 @@
 package ru.shorokhova.store.core.services;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import ru.shorokhova.store.api.CreateNewProductDto;
+import ru.shorokhova.store.core.entities.Feedback;
 import ru.shorokhova.store.core.entities.Product;
 import ru.shorokhova.store.core.repositories.ProductRepository;
-import ru.shorokhova.store.core.repositories.specifications.ProductsSpecifications;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,8 +16,8 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public Page<Product> findAll(Specification<Product> spec, int page){
-        return productRepository.findAll(spec, PageRequest.of(page, 5));
+    public List<Product> findAll(){
+        return productRepository.findAll();
     }
 
     public Optional<Product> findById(Long id){
@@ -35,18 +33,10 @@ public class ProductService {
         Product product = new Product();
         product.setTitle(createNewProductDto.getTitle());
         product.setPrice(createNewProductDto.getPrice());
+        product.setCompanyName(createNewProductDto.getCompanyName());
+        product.setDescription(createNewProductDto.getDescription());
+        product.setCount(createNewProductDto.getCount());
         productRepository.save(product);
     }
 
-    public Specification<Product> createSpecByFilters(Integer minPrice, Integer maxPrice, String title){
-        Specification<Product> spec = Specification.where(null);
-        if(minPrice != null){
-            spec = spec.and(ProductsSpecifications.priceGreaterOrEqualsThan(minPrice));
-        } if(maxPrice != null){
-            spec = spec.and(ProductsSpecifications.priceLessThanOrEqualsThan(maxPrice));
-        } if(title != null){
-            spec = spec.and(ProductsSpecifications.titleLike(title));
-        }
-        return spec;
-    }
 }

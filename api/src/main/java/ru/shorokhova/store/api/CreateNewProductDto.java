@@ -1,24 +1,21 @@
 package ru.shorokhova.store.api;
 
+
+import lombok.Data;
+import lombok.Getter;
+
 import java.math.BigDecimal;
 
+@Data
+@Getter
 public class CreateNewProductDto {
     private String title;
     private BigDecimal price;
 
-    public String getTitle() {
-        return title;
-    }
+    private String description;
 
-    public BigDecimal getPrice() {
-        return price;
-    }
+    private String companyName;
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+    private int count;
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
 }
