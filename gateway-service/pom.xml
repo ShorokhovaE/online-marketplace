@@ -11,7 +11,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>ru.geekbrains.web-store</groupId>
+    <groupId>ru.shorokhova.web-store</groupId>
     <artifactId>gateway-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>war</name>

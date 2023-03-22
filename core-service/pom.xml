@@ -10,7 +10,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ru.geekbrains.web-store</groupId>
+    <groupId>ru.shorokhova.web-store</groupId>
     <artifactId>core-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
@@ -23,7 +23,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>ru.geekbrains.spring</groupId>
+            <groupId>ru.shorokhova.spring</groupId>
             <artifactId>api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>

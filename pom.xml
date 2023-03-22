@@ -13,7 +13,7 @@
         <module>auth-service</module>
     </modules>
 
-    <groupId>ru.geekbrains.spring</groupId>
+    <groupId>ru.shorokhova.spring</groupId>
     <artifactId>web-store</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>web-store</name>
