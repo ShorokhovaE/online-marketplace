@@ -4,12 +4,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.shorokhova.store.api.CartDto;
+import ru.shorokhova.store.core.entities.Product;
 import ru.shorokhova.store.core.repositories.OrderRepository;
 import ru.shorokhova.store.core.entities.Order;
 import ru.shorokhova.store.core.entities.OrderItem;
 import ru.shorokhova.store.core.integrations.CartServiceIntegration;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -18,6 +20,7 @@ public class OrderService {
 
     private final OrderRepository orderRepository;
     private final ProductService productService;
+
     private final CartServiceIntegration cartServiceIntegration;
 
     @Transactional
@@ -43,4 +46,9 @@ public class OrderService {
     public List<Order> findByUsername(String username){
         return orderRepository.findByUsername(username);
     }
+
+    public Order findById(Long id){
+        return orderRepository.findById(id).get();
+    }
+
 }

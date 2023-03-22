@@ -1,42 +1,33 @@
 package ru.shorokhova.store.core.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Data
-@Table(name = "products")
+@Table(name = "feedbacks")
 @NoArgsConstructor
-public class Product {
+public class Feedback {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "title")
-    private String title;
+    @Column(name = "comment_text")
+    private String commentText;
 
-    @Column(name = "price")
-    private BigDecimal price;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
-//    private String description;
-//
-//    private String companyName;
-//
-//    private int count;
-
-    @OneToMany
-    private List<Feedback> feedback;
+    @Column(name = "grade")
+    private int grade;
 
     @CreationTimestamp
     @Column(name = "created_at")

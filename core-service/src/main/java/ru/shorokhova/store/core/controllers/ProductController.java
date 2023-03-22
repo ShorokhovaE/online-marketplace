@@ -98,4 +98,5 @@ public class ProductController {
     public void createNewProducts(@RequestBody CreateNewProductDto createNewProductDto) {
         productService.createNewProduct(createNewProductDto);
     }
+
 }

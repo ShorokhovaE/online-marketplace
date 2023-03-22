@@ -23,6 +23,7 @@ public class ProductService {
     }
 
     public Optional<Product> findById(Long id){
+        System.out.println("Id " + id);
         return productRepository.findById(id);
     }
 

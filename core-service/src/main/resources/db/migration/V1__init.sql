@@ -56,3 +56,15 @@ create table order_items
     FOREIGN KEY (order_id) REFERENCES orders (id),
     FOREIGN KEY (product_id) REFERENCES products (id)
 );
+
+create table feedbacks
+(
+    id   int NOT NULL AUTO_INCREMENT,
+    comment_text varchar(255),
+    grade int,
+    product_id int,
+    created_at timestamp default current_timestamp,
+    updated_at timestamp default current_timestamp,
+    PRIMARY KEY (id),
+    FOREIGN KEY (product_id) REFERENCES products (id)
+);
